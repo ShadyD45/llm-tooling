@@ -19,9 +19,17 @@ class ToolRegistry:
             ToolRegistry._tooling_dirs.extend(tool_location)
         ToolRegistry._tooling_dirs = list(set(ToolRegistry._tooling_dirs))  # Remove duplicates
 
-        # Add current project root to search directories
+        # Get absolute path of project root
         project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-        ToolRegistry._tooling_dirs.append(project_root)
+
+        # Only consider 'tool' and 'tooling' directories under the project root
+        valid_dirs = []
+        for subdir in ToolRegistry._tooling_dirs:
+            full_path = os.path.join(project_root, subdir)
+            if os.path.isdir(full_path):
+                valid_dirs.append(full_path)
+
+        ToolRegistry._tooling_dirs = valid_dirs  # Override any previous entries
 
         # Register all tool classes from the specified directories
         for path in ToolRegistry._tooling_dirs:
