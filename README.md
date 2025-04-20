@@ -19,9 +19,9 @@ Create tool functions in the `tools/` directory. Use the `@tool_method` decorato
 ```python
 # tools/WeatherTool.py
 
-from main.registry.tool_registry import ToolRegistry
+from main.registry.tool_registry import ToolRegistry as tools
 
-@ToolRegistry.tool_method(name="get_weather", description="Get weather for a city")
+@tools.tool_method(name="get_weather", description="Get weather for a city")
 def get_weather(city: str) -> str:
     return f"The weather in {city} is sunny."
 ```
@@ -58,7 +58,7 @@ if followup:
 ### 3. Tool Decorator API
 
 ```python
-@ToolRegistry.tool_method(name="tool_name", description="What the tool does")
+@tools.tool_method(name="tool_name", description="What the tool does")
 def your_tool_function(arg1: str, arg2: int) -> str:
     return "result"
 ```
