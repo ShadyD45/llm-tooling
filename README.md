@@ -19,7 +19,7 @@ For example you can define a WeatherTool api like below
 ```python
 from main.registry.tool_registry import ToolRegistry as tools
 
-@tools.tool_method(name="get_weather_for_location", description="Get weather for a givrn location")
+@tools.tool_method(name="get_weather_for_location", description="Get weather for a given location")
 def get_weather(location: str) -> str:
     return f"The weather in {location} is sunny."
 ```
