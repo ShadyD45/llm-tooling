@@ -15,10 +15,8 @@ A simple framework to enable tool usage with LLMs (like Ollama's models). It sup
 ### 1. Define your tools
 
 Create tool functions in the `tools/` directory. Use the `@tool_method` decorator to register them:
-
+For example you can define a WeatherTool api like below
 ```python
-# tools/WeatherTool.py
-
 from main.registry.tool_registry import ToolRegistry as tools
 
 @tools.tool_method(name="get_weather", description="Get weather for a city")
@@ -34,16 +32,17 @@ Use the `LlmTooling` interface to simplify initialization and tool usage.
 from ollama import chat
 from main import LlmTooling
 
+# Initialize or register all tools
 LlmTooling.init()
 
 messages = [{"role": "user", "content": "What's the weather in Paris?"}]
 response = chat(
     model="llama3.2:3b",
     messages=messages,
-    tools=LlmTooling.get_all_tools_as_callable()
+    tools=LlmTooling.get_all_tools_as_callable() # Get all available tools
 )
 
-followup = LlmTooling.parse_and_call_tool_if_available(response)
+followup = LlmTooling.parse_and_call_tool_if_available(response) # Depending on the LLM response, call the requried tool if needed 
 
 if followup:
     # Send followup to LLM for continuation
@@ -63,7 +62,10 @@ def your_tool_function(arg1: str, arg2: int) -> str:
     return "result"
 ```
 
-## Tool Calling Flow
+### 4. Examples:
+- 
+
+## Example Tool Calling Flow
 
 - LLM chooses to call a tool (via `tool_calls` in response)
 - `parse_and_call_tool_if_available` runs the function
