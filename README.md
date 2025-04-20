@@ -1,7 +1,7 @@
 
 # LLM Tooling Framework
 
-A simple framework to enable tool usage with LLMs (like Ollama's models). It supports automatic discovery and registration of tools defined using decorators.
+A simple toy framework to enable tool usage with LLMs (like Ollama's models). It supports automatic discovery and registration of tools defined using decorators.
 
 ## Features
 
