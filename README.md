@@ -32,7 +32,7 @@ Use the `LlmTooling` interface to simplify initialization and tool usage.
 
 ```python
 from ollama import chat
-from llm_tooling import LlmTooling  # Make sure this points to your file structure
+from main import LlmTooling
 
 LlmTooling.init()
 
