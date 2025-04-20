@@ -19,9 +19,9 @@ For example you can define a WeatherTool api like below
 ```python
 from main.registry.tool_registry import ToolRegistry as tools
 
-@tools.tool_method(name="get_weather", description="Get weather for a city")
-def get_weather(city: str) -> str:
-    return f"The weather in {city} is sunny."
+@tools.tool_method(name="get_weather_for_location", description="Get weather for a givrn location")
+def get_weather(location: str) -> str:
+    return f"The weather in {location} is sunny."
 ```
 
 ### 2. Initialize in your main app
