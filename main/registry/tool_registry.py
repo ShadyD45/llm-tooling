@@ -22,7 +22,7 @@ class ToolRegistry:
         # Get absolute path of project root
         project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
-        # Only consider 'tool' and 'tooling' directories under the project root
+        # Only consider default and provided "tool" directories under the project root
         valid_dirs = []
         for subdir in ToolRegistry._tooling_dirs:
             full_path = os.path.join(project_root, subdir)
