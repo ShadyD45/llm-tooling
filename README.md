@@ -63,7 +63,7 @@ def your_tool_function(arg1: str, arg2: int) -> str:
 ```
 
 ### 4. Examples:
-- 
+- [chat_with_tool_calling](https://github.com/ShadyD45/llm-tooling/blob/main/examples/chat_with_tool_calling.py)
 
 ## Example Tool Calling Flow
 
